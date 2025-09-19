@@ -11,57 +11,205 @@
     <style>
         /* Specific styles for the index page */
         body {
-            background-color: #f0f2f5; /* A light grey background */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             text-align: center;
+            padding: 20px 0;
         }
 
         .container {
-            max-width: 600px;
-            padding: 40px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            padding: 50px;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
         }
 
         .logo {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 20px;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         h1 {
-            color: #4CAF50;
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            color: #667eea;
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .tagline {
-            color: #666;
-            font-size: 1.2em;
-            margin-bottom: 30px;
+            color: #555;
+            font-size: 1.4em;
+            margin-bottom: 40px;
+            font-weight: 600;
         }
 
         .app-description {
             color: #444;
-            font-size: 1em;
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 50px;
+            text-align: left;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .feature-card {
+            background: linear-gradient(145deg, #f0f2f5, #ffffff);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .feature-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .feature-description {
+            color: #666;
             line-height: 1.6;
-            margin-bottom: 40px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 50px 0;
+            padding: 30px;
+            background: linear-gradient(145deg, #ffffff, #f0f2f5);
+            border-radius: 15px;
+            box-shadow: inset 5px 5px 10px #e0e0e0, inset -5px -5px 10px #ffffff;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-weight: 600;
+        }
+
+        .cta-section {
+            margin: 50px 0;
+            padding: 40px;
+            background: linear-gradient(145deg, #667eea, #764ba2);
+            border-radius: 20px;
+            color: white;
+        }
+
+        .cta-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta-text {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .download-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .download-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .legal-links {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
         }
 
         .legal-links a {
-            color: #4CAF50;
+            color: #667eea;
             text-decoration: none;
             font-weight: 600;
-            margin: 0 15px;
-            transition: color 0.3s ease;
+            margin: 0 20px;
+            transition: all 0.3s ease;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
         }
 
         .legal-links a:hover {
-            color: #388E3C;
+            color: #764ba2;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px;
+                margin: 20px;
+            }
+            
+            h1 {
+                font-size: 2.5em;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .download-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
@@ -69,13 +217,85 @@
     <div class="container">
         <img src="app_logo.png" alt="Flirt Pro Logo" class="logo">
         <h1>Flirt Pro</h1>
-        <p class="tagline">Your personal AI-powered flirting assistant.</p>
-        <p class="app-description">
-            Flirt Pro is an innovative mobile application that helps you craft perfect messages for any conversation. Whether you need a clever opening line, a witty comeback, or a romantic message, our AI generates unique and engaging content to help you make a great impression.
-        </p>
+        <p class="tagline">Your Personal AI-Powered Conversation Catalyst</p>
+        
+        <div class="app-description">
+            <p>Transform your dating game with Flirt Pro, the revolutionary AI-powered communication assistant that empowers you to create meaningful connections. Our advanced machine learning algorithms analyze conversation patterns, emotional intelligence markers, and social dynamics to generate personalized, authentic messages that resonate with your unique personality and communication style.</p>
+            
+            <p>Whether you're navigating the complexities of online dating, looking to spark engaging conversations, or seeking to express your feelings with confidence, Flirt Pro provides intelligent suggestions that help you communicate with charm, wit, and authenticity. Our sophisticated natural language processing ensures every generated message feels genuine and tailored to your specific situation.</p>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3 class="feature-title">AI-Powered Intelligence</h3>
+                <p class="feature-description">Advanced neural networks trained on millions of successful conversations to provide contextually relevant and engaging message suggestions.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <h3 class="feature-title">Personalized Messaging</h3>
+                <p class="feature-description">Adaptive algorithms learn your communication style and preferences to generate messages that sound authentically you.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3 class="feature-title">Context-Aware Responses</h3>
+                <p class="feature-description">Smart analysis of conversation flow, emotional tone, and relationship dynamics to suggest perfectly timed responses.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3 class="feature-title">Creative Conversation Starters</h3>
+                <p class="feature-description">Breakthrough icebreakers and engaging opening lines that capture attention and spark meaningful dialogues.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3 class="feature-title">Privacy-First Design</h3>
+                <p class="feature-description">End-to-end encryption and zero-knowledge architecture ensure your conversations remain completely private and secure.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3 class="feature-title">Real-Time Optimization</h3>
+                <p class="feature-description">Continuous learning and improvement based on successful interaction patterns and user feedback.</p>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Active Users</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">2M+</div>
+                <div class="stat-label">Messages Generated</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">89%</div>
+                <div class="stat-label">Success Rate</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">4.8★</div>
+                <div class="stat-label">User Rating</div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2 class="cta-title">Ready to Revolutionize Your Conversations?</h2>
+            <p class="cta-text">Join thousands of users who have already discovered the power of AI-assisted communication. Download Flirt Pro today and start creating meaningful connections with confidence.</p>
+            <div class="download-buttons">
+                <a href="#" class="download-btn">📱 Download for iOS</a>
+                <a href="#" class="download-btn">🤖 Download for Android</a>
+            </div>
+        </div>
+
         <div class="legal-links">
             <a href="privacy_policy.html">Privacy Policy</a>
             <a href="terms_of_service.html">Terms of Service</a>
+            <a href="support.html">Support Center</a>
+            <a href="contact.html">Contact Us</a>
         </div>
     </div>
 </body>

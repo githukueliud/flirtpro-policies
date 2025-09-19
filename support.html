@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flirt Pro - Support Center</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .hero-section h1 {
+            color: white;
+            font-size: 3em;
+            margin-bottom: 20px;
+            border-bottom: none;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .support-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .support-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .support-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+
+        .support-title {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .support-description {
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .support-link {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .support-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        .faq-section {
+            background: #f8f9fa;
+            padding: 50px 0;
+            margin: 50px -30px -30px -30px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        .faq-title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 50px;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 25px;
+            background: white;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1em;
+            color: #333;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+        }
+
+        .faq-question:after {
+            content: '+';
+            position: absolute;
+            right: 25px;
+            font-size: 1.5em;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active:after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            padding: 0 25px;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .faq-answer.active {
+            padding: 25px;
+            max-height: 500px;
+        }
+
+        .contact-cta {
+            text-align: center;
+            margin-top: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px;
+        }
+
+        .contact-cta h3 {
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .contact-cta p {
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .contact-cta .support-link {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-cta .support-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2em;
+            }
+            
+            .support-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .faq-section {
+                margin: 50px -20px -30px -20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-section">
+        <div class="container">
+            <h1>How Can We Help You?</h1>
+            <p class="hero-subtitle">Find answers to your questions and get the support you need</p>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Search for help articles, FAQs, and more...">
+                <button class="search-btn">🔍</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="support-grid">
+            <div class="support-card">
+                <div class="support-icon">📚</div>
+                <h3 class="support-title">Getting Started Guide</h3>
+                <p class="support-description">Learn how to set up your profile, use AI features, and get the most out of Flirt Pro with our comprehensive getting started guide.</p>
+                <a href="#getting-started" class="support-link">View Guide</a>
+            </div>
+
+            <div class="support-card">
+                <div class="support-icon">🤖</div>
+                <h3 class="support-title">AI Features Help</h3>
+                <p class="support-description">Discover how our AI-powered conversation suggestions work and learn tips to maximize your success with personalized messaging.</p>
+                <a href="#ai-features" class="support-link">Learn More</a>
+            </div>
+
+            <div class="support-card">
+                <div class="support-icon">💳</div>
+                <h3 class="support-title">Billing & Subscriptions</h3>
+                <p class="support-description">Manage your subscription, update payment methods, view billing history, and understand our pricing plans and refund policies.</p>
+                <a href="#billing" class="support-link">Manage Billing</a>
+            </div>
+
+            <div class="support-card">
+                <div class="support-icon">🔒</div>
+                <h3 class="support-title">Privacy & Security</h3>
+                <p class="support-description">Learn about our security measures, privacy settings, data protection policies, and how to keep your account safe.</p>
+                <a href="#security" class="support-link">Security Info</a>
+            </div>
+
+            <div class="support-card">
+                <div class="support-icon">⚙️</div>
+                <h3 class="support-title">Account Settings</h3>
+                <p class="support-description">Customize your profile, manage notifications, adjust privacy settings, and personalize your Flirt Pro experience.</p>
+                <a href="#settings" class="support-link">Manage Account</a>
+            </div>
+
+            <div class="support-card">
+                <div class="support-icon">🐛</div>
+                <h3 class="support-title">Report Issues</h3>
+                <p class="support-description">Experiencing technical problems, inappropriate behavior, or other issues? Report them here and our team will investigate promptly.</p>
+                <a href="#report" class="support-link">Report Issue</a>
+            </div>
+        </div>
+
+        <div class="contact-cta">
+            <h3>Still Need Help?</h3>
+            <p>Can't find what you're looking for? Our support team is here to help you 24/7.</p>
+            <a href="contact.html" class="support-link">Contact Support</a>
+        </div>
+    </div>
+
+    <div class="faq-section">
+        <div class="faq-container">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    How does the AI conversation assistant work?
+                </div>
+                <div class="faq-answer">
+                    Our AI uses advanced natural language processing and machine learning to analyze conversation context, your communication style, and the other person's responses to generate personalized message suggestions. The AI learns from successful conversations to improve its recommendations over time.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Is my personal information and conversation data safe?
+                </div>
+                <div class="faq-answer">
+                    Yes, we take privacy and security very seriously. All data is encrypted both in transit and at rest using industry-standard encryption. We never share your personal conversations with other users, and you can delete your data at any time. Please review our Privacy Policy for complete details.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    What's the difference between free and premium features?
+                </div>
+                <div class="faq-answer">
+                    Free users get access to basic AI suggestions and limited daily generations. Premium subscribers enjoy unlimited AI generations, advanced personalization options, priority customer support, exclusive conversation templates, and early access to new features.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Can I cancel my subscription at any time?
+                </div>
+                <div class="faq-answer">
+                    Yes, you can cancel your subscription at any time through your account settings or by contacting our support team. Your premium features will remain active until the end of your current billing period. No cancellation fees apply.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    How do I report inappropriate behavior or content?
+                </div>
+                <div class="faq-answer">
+                    You can report issues directly through the app using our reporting tools, or contact our Trust & Safety team at safety@flirtpro.com. We investigate all reports promptly and take appropriate action to maintain a safe community environment.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    What devices and platforms are supported?
+                </div>
+                <div class="faq-answer">
+                    Flirt Pro is available for iOS (version 13.0+) and Android (version 8.0+) devices. We're continuously working to expand platform support and optimize performance across all supported devices.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const isActive = answer.classList.contains('active');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-answer.active').forEach(item => {
+                item.classList.remove('active');
+            });
+            document.querySelectorAll('.faq-question.active').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Toggle current FAQ if it wasn't active
+            if (!isActive) {
+                answer.classList.add('active');
+                element.classList.add('active');
+            }
+        }
+
+        // Search functionality
+        document.querySelector('.search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value.toLowerCase();
+                if (query) {
+                    alert('Search functionality would filter help articles for: "' + query + '"');
+                }
+            }
+        });
+
+        document.querySelector('.search-btn').addEventListener('click', function() {
+            const query = document.querySelector('.search-input').value.toLowerCase();
+            if (query) {
+                alert('Search functionality would filter help articles for: "' + query + '"');
+            }
+        });
+    </script>
+</body>
+</html>
